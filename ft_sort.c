@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:23:44 by asohrabi          #+#    #+#             */
-/*   Updated: 2023/12/01 18:46:05 by asohrabi         ###   ########.fr       */
+/*   Updated: 2023/12/07 13:49:14 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,6 @@
 
 static void	ft_sort_three(t_list **list)
 {
-	// if ((*list)->n < ((*list)->next)->n)
-	// {
-	// 	if ((((*list)->next)->next)->n < ((*list)->next)->n)
-	// 	{
-	// 		rra(list, 1);
-	// 		if (!check_sorted(*list))
-	// 			sa(list, 1);
-	// 	}
-	// }
-	// else if ((*list)->n > ((*list)->next)->n)
-	// {
-	// 	if ((*list)->n < (((*list)->next)->next)->n)
-	// 		sa(list, 1);
-	// 	else
-	// 	{
-	// 		ra(list, 1);
-	// 		if (!check_sorted(*list))
-	// 			sa(list, 1);
-	// 	}
-	// }
 	if (ft_min(*list) == (*list)->n)
 	{
 		rra(list, 1);
@@ -85,9 +65,9 @@ static t_list	*ft_sort_list_b(t_list **list_a)
 
 	list_b = NULL;
 	if (ft_lstsize(*list_a) > 3 && !check_sorted(*list_a))
-		pb(list_a, &list_b);
+		pb(&list_b, list_a);
 	if (ft_lstsize(*list_a) > 3 && !check_sorted(*list_a))
-		pb(list_a, &list_b);
+		pb(&list_b, list_a);
 	if (ft_lstsize(*list_a) > 3 && !check_sorted(*list_a))
 		ft_sort_b_till_three(list_a, &list_b);
 	if (!check_sorted(*list_a))
@@ -129,8 +109,6 @@ void	ft_sort(t_list **list_a)
 	list_b = NULL;
 	if (ft_lstsize(*list_a) == 2)
 		sa(list_a, 1);
-	// else if (ft_lstsize(*list_a) == 3)
-	// 	ft_sort_three(list_a);
 	else
 	{
 		list_b = ft_sort_list_b(list_a);
