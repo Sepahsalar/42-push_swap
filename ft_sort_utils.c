@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:23:57 by asohrabi          #+#    #+#             */
-/*   Updated: 2023/12/01 18:42:59 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/01/30 10:40:48 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ int	ft_max(t_list *list)
 {
 	int		max;
 
-	// if (!list)
-	// 	return (0);
 	max = list->n;
 	while (list)
 	{

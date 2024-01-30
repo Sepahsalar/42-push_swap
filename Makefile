@@ -6,7 +6,7 @@
 #    By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 10:43:45 by asohrabi          #+#    #+#              #
-#    Updated: 2023/11/29 12:12:32 by asohrabi         ###   ########.fr        #
+#    Updated: 2024/01/30 10:42:27 by asohrabi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,6 @@ FUNC = check_args.c \
 			rules_both.c \
 			main.c
 
-# FUNC_BONUS = 
-
 OBJ = ${FUNC:.c=.o}
 
 OBJ_BONUS = ${FUNC_BONUS:.c=.o}
@@ -38,12 +36,6 @@ all: ${NAME}
 
 ${NAME}: ${OBJ}	
 	ar -crs ${NAME} ${OBJ}
-
-.bonus: ${NAME} ${OBJ_BONUS}
-	ar -crs ${NAME} ${OBJ_BONUS}
-	touch .bonus
-
-bonus: .bonus
 
 clean:
 	rm -f ${OBJ} ${OBJ_BONUS}
