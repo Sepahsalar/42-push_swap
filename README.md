@@ -80,6 +80,6 @@ At the end, **stack b** must empty empty and all integers must be in **stack a**
 
 </br>
 
-# Resources
+## Resources
 
 [Push swap tutorial](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
