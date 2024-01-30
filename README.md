@@ -18,21 +18,21 @@ Follow the steps below to test the project:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/Sepahsalar/42-push_swap.git
+$> git clone https://github.com/Sepahsalar/42-push_swap.git
 ```
 2. Compile the project:
 ```bash
-make
+$> make
 ```
 3. Run the program with the following syntax:
 ```bash
-./push_swap num1 num2 num3 num4
+$> ./push_swap num1 num2 num3 num4
 ```
 - **num**: unique numbers in a non-ascending order.
 
 ### Examples
 ```bash
-./push_swap 8 5 2 4 9
+$> ./push_swap 8 5 2 4 9
 ```
 
 </br>
@@ -61,8 +61,6 @@ At the end, **stack b** must empty empty and all integers must be in **stack a**
 </br>
 
 ## Algorithm
-
-
 
 1. To initiate the sorting process, my code first pushes the top two elements from stack_a to stack_b. This creates the smallest and largest numbers in stack_b, which are prerequisites for my code. Before pushing a number from stack_a to stack_b, the algorithm compares the number being pushed with the smallest and largest numbers in stack_b.
 
