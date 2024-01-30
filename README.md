@@ -12,7 +12,7 @@ Push_swap is a sorting algorithm project that aims to sort a stack of integers u
 
 </br>
 
-# Installation
+## Installation
 
 Follow the steps below to test the project: 
 
@@ -30,14 +30,14 @@ make
 ```
 - **num**: unique numbers in a non-ascending order.
 
-## Examples
+### Examples
 ```bash
 ./push_swap 8 5 2 4 9
 ```
 
 </br>
 
-# Description
+## Description
 
 Sort a random list of integers using the smallest number of moves, 2 stacks and a limited set of operations. You start with two empty stacks: **a** and **b**. You are given a random list of integers via command line arguments.
 <br />
@@ -60,7 +60,7 @@ At the end, **stack b** must empty empty and all integers must be in **stack a**
 
 </br>
 
-# Algorithm
+## Algorithm
 
 
 
