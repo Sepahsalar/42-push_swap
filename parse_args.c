@@ -6,27 +6,27 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 16:09:45 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/01/30 10:41:35 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/02/21 16:58:12 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	list_args(char **argv, t_list **list)
+static void	list_args(char **argv, t_list_m **list)
 {
 	int	i;
 
 	i = 1;
 	while (argv[i])
 	{
-		ft_lstadd_back(list, ft_lstnew(ft_atoi(argv[i])));
+		ft_lstadd_back_m(list, ft_lstnew_m(ft_atoi_m(argv[i])));
 		i++;
 	}
 }
 
-void	ft_free(t_list **list)
+void	ft_free(t_list_m **list)
 {
-	t_list	*temp;
+	t_list_m	*temp;
 
 	if (!list)
 		return ;
@@ -54,10 +54,10 @@ static void	ft_free_str(char **list)
 	*list = NULL;
 }
 
-t_list	*parse_args(int argc, char **argv)
+t_list_m	*parse_args(int argc, char **argv)
 {
-	t_list	*list;
-	char	**numbers;
+	t_list_m	*list;
+	char		**numbers;
 
 	list = NULL;
 	if (argc < 2)

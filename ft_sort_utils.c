@@ -6,13 +6,13 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:23:57 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/01/30 10:40:48 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:18:50 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_min(t_list *list)
+int	ft_min(t_list_m *list)
 {
 	int		min;
 
@@ -26,7 +26,7 @@ int	ft_min(t_list *list)
 	return (min);
 }
 
-int	ft_max(t_list *list)
+int	ft_max(t_list_m *list)
 {
 	int		max;
 
@@ -40,10 +40,10 @@ int	ft_max(t_list *list)
 	return (max);
 }
 
-int	find_index(t_list *list, int nbr)
+int	find_index(t_list_m *list, int nbr)
 {
-	int		index;
-	t_list	*temp;
+	int			index;
+	t_list_m	*temp;
 
 	index = 0;
 	temp = list;
@@ -55,17 +55,17 @@ int	find_index(t_list *list, int nbr)
 	return (index);
 }
 
-int	cal_insert_index_b(t_list *list_b, int nbr)
+int	cal_insert_index_b(t_list_m *list_b, int nbr)
 {
-	int		i;
-	t_list	*temp;
+	int			i;
+	t_list_m	*temp;
 
 	i = 1;
 	if (!list_b)
 		return (0);
 	if (nbr > ft_max(list_b) || nbr < ft_min(list_b))
 		i = find_index(list_b, ft_max(list_b));
-	else if (nbr > list_b->n && nbr < ft_lstlast(list_b)->n)
+	else if (nbr > list_b->n && nbr < ft_lstlast_m(list_b)->n)
 		i = 0;
 	else
 	{
@@ -81,17 +81,17 @@ int	cal_insert_index_b(t_list *list_b, int nbr)
 	return (i);
 }
 
-int	cal_insert_index_a(t_list *list_a, int nbr)
+int	cal_insert_index_a(t_list_m *list_a, int nbr)
 {
-	int		i;
-	t_list	*temp;
+	int			i;
+	t_list_m	*temp;
 
 	i = 1;
 	if (!list_a)
 		return (0);
 	if (nbr > ft_max(list_a) || nbr < ft_min(list_a))
 		i = find_index(list_a, ft_min(list_a));
-	else if (nbr < list_a->n && nbr > ft_lstlast(list_a)->n)
+	else if (nbr < list_a->n && nbr > ft_lstlast_m(list_a)->n)
 		i = 0;
 	else
 	{

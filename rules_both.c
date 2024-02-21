@@ -6,13 +6,13 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:08:54 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/01/30 10:41:56 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:21:21 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ss(t_list **list_a, t_list **list_b)
+void	ss(t_list_m **list_a, t_list_m **list_b)
 {
 	if (!*list_a || !((*list_a)->next) || !*list_b || !((*list_b)->next))
 		return ;
@@ -21,7 +21,7 @@ void	ss(t_list **list_a, t_list **list_b)
 	write(1, "ss\n", 3);
 }
 
-void	rr(t_list **list_a, t_list **list_b)
+void	rr(t_list_m **list_a, t_list_m **list_b)
 {
 	if (!*list_a || !((*list_a)->next) || !*list_b || !((*list_b)->next))
 		return ;
@@ -30,7 +30,7 @@ void	rr(t_list **list_a, t_list **list_b)
 	write(1, "rr\n", 3);
 }
 
-void	rrr(t_list **list_a, t_list **list_b)
+void	rrr(t_list_m **list_a, t_list_m **list_b)
 {
 	if (!*list_a || !((*list_a)->next) || !*list_b || !((*list_b)->next))
 		return ;

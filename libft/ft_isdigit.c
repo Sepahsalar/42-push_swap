@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 11:27:50 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/02/21 13:19:56 by asohrabi         ###   ########.fr       */
+/*   Created: 2023/10/23 15:57:25 by asohrabi          #+#    #+#             */
+/*   Updated: 2024/01/30 10:57:58 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	main(int argc, char **argv)
+int	ft_isdigit(int c)
 {
-	t_list_m	*list;
-
-	check_args(argv);
-	list = parse_args(argc, argv);
-	if (!list || check_dup(list))
-	{
-		ft_free(&list);
-		write(2, "Error\n", 6);
-		exit(1);
-	}
-	if (!check_sorted(list))
-		ft_sort(&list);
-	ft_free(&list);
+	if (c >= 48 && c <= 57)
+		return (1);
 	return (0);
 }

@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 11:27:50 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/02/21 13:19:56 by asohrabi         ###   ########.fr       */
+/*   Created: 2023/10/24 14:21:47 by asohrabi          #+#    #+#             */
+/*   Updated: 2024/01/30 10:59:49 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	t_list_m	*list;
+	size_t	i;
 
-	check_args(argv);
-	list = parse_args(argc, argv);
-	if (!list || check_dup(list))
+	i = 0;
+	if (dstsize != 0)
 	{
-		ft_free(&list);
-		write(2, "Error\n", 6);
-		exit(1);
+		while (src[i] && i < (dstsize - 1))
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
 	}
-	if (!check_sorted(list))
-		ft_sort(&list);
-	ft_free(&list);
-	return (0);
+	return (ft_strlen(src));
 }

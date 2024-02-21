@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 11:27:50 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/02/21 13:19:56 by asohrabi         ###   ########.fr       */
+/*   Created: 2023/10/24 15:53:49 by asohrabi          #+#    #+#             */
+/*   Updated: 2024/01/30 10:59:45 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	t_list_m	*list;
+	size_t	c;
+	size_t	i;
+	size_t	length;
 
-	check_args(argv);
-	list = parse_args(argc, argv);
-	if (!list || check_dup(list))
+	if (!dst && dstsize == 0)
+		return (ft_strlen(src));
+	length = ft_strlen(dst) + ft_strlen(src);
+	if (dstsize <= ft_strlen(dst))
+		return (dstsize + ft_strlen(src));
+	c = ft_strlen(dst);
+	i = 0;
+	while (src[i] && c < dstsize - 1)
 	{
-		ft_free(&list);
-		write(2, "Error\n", 6);
-		exit(1);
+		dst[c] = src[i];
+		c++;
+		i++;
 	}
-	if (!check_sorted(list))
-		ft_sort(&list);
-	ft_free(&list);
-	return (0);
+	dst[c] = '\0';
+	return (length);
 }

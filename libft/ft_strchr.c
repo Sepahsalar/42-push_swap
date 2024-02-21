@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 11:27:50 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/02/21 13:19:56 by asohrabi         ###   ########.fr       */
+/*   Created: 2023/10/24 16:24:41 by asohrabi          #+#    #+#             */
+/*   Updated: 2024/01/30 10:59:27 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	main(int argc, char **argv)
+char	*ft_strchr(const char *s, int c)
 {
-	t_list_m	*list;
-
-	check_args(argv);
-	list = parse_args(argc, argv);
-	if (!list || check_dup(list))
+	while (*s != '\0')
 	{
-		ft_free(&list);
-		write(2, "Error\n", 6);
-		exit(1);
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
 	}
-	if (!check_sorted(list))
-		ft_sort(&list);
-	ft_free(&list);
+	if ((char)c == *s)
+		return ((char *)s);
 	return (0);
 }

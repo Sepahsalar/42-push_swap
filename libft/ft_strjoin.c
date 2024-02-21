@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 11:27:50 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/02/21 13:19:56 by asohrabi         ###   ########.fr       */
+/*   Created: 2023/10/26 10:08:20 by asohrabi          #+#    #+#             */
+/*   Updated: 2024/01/30 10:59:41 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	t_list_m	*list;
+	char	*str;
+	size_t	i;
+	size_t	j;
 
-	check_args(argv);
-	list = parse_args(argc, argv);
-	if (!list || check_dup(list))
+	i = 0;
+	j = 0;
+	if (!s1 || !s2)
+		return (0);
+	str = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (!str)
+		return (0);
+	while (s1[i])
 	{
-		ft_free(&list);
-		write(2, "Error\n", 6);
-		exit(1);
+		str[i] = ((char *)s1)[i];
+		i++;
 	}
-	if (!check_sorted(list))
-		ft_sort(&list);
-	ft_free(&list);
-	return (0);
+	while (s2[j])
+	{
+		str[i] = ((char *)s2)[j];
+		i++;
+		j++;
+	}
+	str[i] = '\0';
+	return (str);
 }

@@ -5,14 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/27 16:48:05 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/02/21 16:57:40 by asohrabi         ###   ########.fr       */
+/*   Created: 2023/10/25 15:03:14 by asohrabi          #+#    #+#             */
+/*   Updated: 2024/01/30 10:57:26 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-static int	ft_putnum_m(const char *str, int sign, int i)
+static int	ft_putnum(const char *str, int sign, int i)
 {
 	long	a;
 
@@ -23,25 +21,19 @@ static int	ft_putnum_m(const char *str, int sign, int i)
 			sign = sign * -1;
 		i++;
 	}
-	while (str[i])
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (str[i] < '0' || str[i] > '9')
-		{
-			write (2, "Error\n", 6);
-			exit(1);
-		}
 		a = a * 10 + (str[i] - '0');
+		if (a < 0 && sign == 1)
+			return (-1);
+		else if (a < 0 && sign == -1)
+			return (0);
 		i++;
-	}
-	if ((sign * a) > 2147483647 || (sign * a) < -2147483648)
-	{
-		write (2, "Error\n", 6);
-		exit(1);
 	}
 	return (sign * (int)a);
 }
 
-int	ft_atoi_m(const char *str)
+int	ft_atoi(const char *str)
 {
 	int	sign;
 	int	i;
@@ -51,5 +43,5 @@ int	ft_atoi_m(const char *str)
 		|| (str[i] == '\f') || (str[i] == '\r') || (str[i] == ' '))
 		i++;
 	sign = 1;
-	return (ft_putnum_m(str, sign, i));
+	return (ft_putnum(str, sign, i));
 }

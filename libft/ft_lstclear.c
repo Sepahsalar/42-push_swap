@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 11:27:50 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/02/21 13:19:56 by asohrabi         ###   ########.fr       */
+/*   Created: 2023/10/30 16:49:48 by asohrabi          #+#    #+#             */
+/*   Updated: 2024/01/30 10:58:19 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_list_m	*list;
+	t_list	*temp;
 
-	check_args(argv);
-	list = parse_args(argc, argv);
-	if (!list || check_dup(list))
+	temp = NULL;
+	if (!lst)
+		return ;
+	while (*lst)
 	{
-		ft_free(&list);
-		write(2, "Error\n", 6);
-		exit(1);
+		temp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = temp;
 	}
-	if (!check_sorted(list))
-		ft_sort(&list);
-	ft_free(&list);
-	return (0);
+	*lst = NULL;
 }

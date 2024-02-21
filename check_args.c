@@ -6,13 +6,13 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:50:55 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/01/30 10:39:55 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:16:10 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_sorted(t_list *list)
+int	check_sorted(t_list_m *list)
 {
 	int	nbr;
 
@@ -29,9 +29,9 @@ int	check_sorted(t_list *list)
 	return (1);
 }
 
-int	check_dup(t_list *list)
+int	check_dup(t_list_m *list)
 {
-	t_list	*temp;
+	t_list_m	*temp;
 
 	while (list)
 	{

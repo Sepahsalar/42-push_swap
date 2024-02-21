@@ -6,15 +6,15 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:08:31 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/01/30 10:41:52 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:21:01 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sb(t_list **list_b, int i)
+void	sb(t_list_m **list_b, int i)
 {
-	t_list	*temp;
+	t_list_m	*temp;
 
 	if (!*list_b || !((*list_b)->next))
 		return ;
@@ -26,9 +26,9 @@ void	sb(t_list **list_b, int i)
 		write(1, "sb\n", 3);
 }
 
-void	pb(t_list **list_b, t_list **list_a)
+void	pb(t_list_m **list_b, t_list_m **list_a)
 {
-	t_list	*temp;
+	t_list_m	*temp;
 
 	if (!*list_a)
 		return ;
@@ -39,14 +39,14 @@ void	pb(t_list **list_b, t_list **list_a)
 	write(1, "pb\n", 3);
 }
 
-void	rb(t_list **list_b, int i)
+void	rb(t_list_m **list_b, int i)
 {
-	t_list	*temp;
+	t_list_m	*temp;
 
 	if (!*list_b || !((*list_b)->next))
 		return ;
 	temp = *list_b;
-	*list_b = ft_lstlast(*list_b);
+	*list_b = ft_lstlast_m(*list_b);
 	(*list_b)->next = temp;
 	*list_b = temp->next;
 	temp->next = NULL;
@@ -54,10 +54,10 @@ void	rb(t_list **list_b, int i)
 		write(1, "rb\n", 3);
 }
 
-void	rrb(t_list **list_b, int i)
+void	rrb(t_list_m **list_b, int i)
 {
-	t_list	*temp;
-	int		j;
+	t_list_m	*temp;
+	int			j;
 
 	if (!*list_b || !((*list_b)->next))
 		return ;

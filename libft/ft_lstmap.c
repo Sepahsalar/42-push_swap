@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 11:27:50 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/02/21 13:19:56 by asohrabi         ###   ########.fr       */
+/*   Created: 2023/10/30 17:03:47 by asohrabi          #+#    #+#             */
+/*   Updated: 2024/01/30 10:58:35 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list_m	*list;
+	t_list	*array;
+	t_list	*node;
 
-	check_args(argv);
-	list = parse_args(argc, argv);
-	if (!list || check_dup(list))
+	array = NULL;
+	node = NULL;
+	if (!lst || !f)
+		return (0);
+	while (lst)
 	{
-		ft_free(&list);
-		write(2, "Error\n", 6);
-		exit(1);
+		node = ft_lstnew(f(lst->content));
+		if (!node)
+		{
+			ft_lstclear(&array, del);
+			return (0);
+		}
+		ft_lstadd_back(&array, node);
+		lst = lst->next;
 	}
-	if (!check_sorted(list))
-		ft_sort(&list);
-	ft_free(&list);
-	return (0);
+	return (array);
 }

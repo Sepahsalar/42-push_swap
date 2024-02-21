@@ -6,16 +6,16 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:18:50 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/01/30 10:39:33 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:14:54 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	cal_push_ab(t_list *list_a, t_list *list_b)
+int	cal_push_ab(t_list_m *list_a, t_list_m *list_b)
 {
-	int		i;
-	t_list	*temp;
+	int			i;
+	t_list_m	*temp;
 
 	i = cal_rrr_ab(list_a, list_b, list_a->n);
 	temp = list_a;
@@ -34,10 +34,10 @@ int	cal_push_ab(t_list *list_a, t_list *list_b)
 	return (i);
 }
 
-int	cal_push_ba(t_list *list_a, t_list *list_b)
+int	cal_push_ba(t_list_m *list_a, t_list_m *list_b)
 {
-	int		i;
-	t_list	*temp;
+	int			i;
+	t_list_m	*temp;
 
 	i = cal_rrr_ba(list_a, list_b, list_a->n);
 	temp = list_a;

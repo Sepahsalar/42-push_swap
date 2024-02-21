@@ -6,13 +6,13 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:23:44 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/01/30 10:41:04 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:19:21 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_sort_three(t_list **list)
+static void	ft_sort_three(t_list_m **list)
 {
 	if (ft_min(*list) == (*list)->n)
 	{
@@ -34,12 +34,12 @@ static void	ft_sort_three(t_list **list)
 	}
 }
 
-static void	ft_sort_b_till_three(t_list **list_a, t_list **list_b)
+static void	ft_sort_b_till_three(t_list_m **list_a, t_list_m **list_b)
 {
-	t_list	*temp;
-	int		i;
+	t_list_m	*temp;
+	int			i;
 
-	while (ft_lstsize(*list_a) > 3 && !check_sorted(*list_a))
+	while (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a))
 	{
 		temp = *list_a;
 		i = cal_push_ab(*list_a, *list_b);
@@ -59,26 +59,26 @@ static void	ft_sort_b_till_three(t_list **list_a, t_list **list_b)
 	}
 }
 
-static t_list	*ft_sort_list_b(t_list **list_a)
+static t_list_m	*ft_sort_list_m_b(t_list_m **list_a)
 {
-	t_list	*list_b;
+	t_list_m	*list_b;
 
 	list_b = NULL;
-	if (ft_lstsize(*list_a) > 3 && !check_sorted(*list_a))
+	if (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a))
 		pb(&list_b, list_a);
-	if (ft_lstsize(*list_a) > 3 && !check_sorted(*list_a))
+	if (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a))
 		pb(&list_b, list_a);
-	if (ft_lstsize(*list_a) > 3 && !check_sorted(*list_a))
+	if (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a))
 		ft_sort_b_till_three(list_a, &list_b);
 	if (!check_sorted(*list_a))
 		ft_sort_three(list_a);
 	return (list_b);
 }
 
-static t_list	**ft_sort_list_a(t_list **list_a, t_list **list_b)
+static t_list_m	**ft_sort_list_m_a(t_list_m **list_a, t_list_m **list_b)
 {
-	t_list	*temp;
-	int		i;
+	t_list_m	*temp;
+	int			i;
 
 	while (*list_b)
 	{
@@ -101,20 +101,20 @@ static t_list	**ft_sort_list_a(t_list **list_a, t_list **list_b)
 	return (list_a);
 }
 
-void	ft_sort(t_list **list_a)
+void	ft_sort(t_list_m **list_a)
 {
-	t_list	*list_b;
-	int		i;
+	t_list_m	*list_b;
+	int			i;
 
 	list_b = NULL;
-	if (ft_lstsize(*list_a) == 2)
+	if (ft_lstsize_m(*list_a) == 2)
 		sa(list_a, 1);
 	else
 	{
-		list_b = ft_sort_list_b(list_a);
-		list_a = ft_sort_list_a(list_a, &list_b);
+		list_b = ft_sort_list_m_b(list_a);
+		list_a = ft_sort_list_m_a(list_a, &list_b);
 		i = find_index(*list_a, ft_min(*list_a));
-		if (i < ft_lstsize(*list_a) - i)
+		if (i < ft_lstsize_m(*list_a) - i)
 		{
 			while ((*list_a)->n != ft_min(*list_a))
 				ra(list_a, 1);

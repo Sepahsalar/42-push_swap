@@ -6,13 +6,13 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:27:11 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/01/30 10:41:25 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:19:41 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstlast(t_list *lst)
+t_list_m	*ft_lstlast_m(t_list_m *lst)
 {
 	if (!lst)
 		return (0);
@@ -21,11 +21,11 @@ t_list	*ft_lstlast(t_list *lst)
 	return (lst);
 }
 
-t_list	*ft_lstnew(int content)
+t_list_m	*ft_lstnew_m(int content)
 {
-	t_list	*list;
+	t_list_m	*list;
 
-	list = (t_list *)malloc(sizeof(t_list));
+	list = (t_list_m *)malloc(sizeof(t_list_m));
 	if (!list)
 	{
 		write (2, "Error\n", 6);
@@ -36,7 +36,7 @@ t_list	*ft_lstnew(int content)
 	return (list);
 }
 
-int	ft_lstsize(t_list *lst)
+int	ft_lstsize_m(t_list_m *lst)
 {
 	int	size;
 
@@ -49,7 +49,7 @@ int	ft_lstsize(t_list *lst)
 	return (size);
 }
 
-void	ft_lstadd_back(t_list **list, t_list *new)
+void	ft_lstadd_back_m(t_list_m **list, t_list_m *new)
 {
 	if (!new || !list)
 		return ;
@@ -59,5 +59,5 @@ void	ft_lstadd_back(t_list **list, t_list *new)
 		return ;
 	}
 	else
-		(ft_lstlast(*list))->next = new;
+		(ft_lstlast_m(*list))->next = new;
 }

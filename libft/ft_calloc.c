@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 11:27:50 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/02/21 13:19:56 by asohrabi         ###   ########.fr       */
+/*   Created: 2023/10/25 15:42:44 by asohrabi          #+#    #+#             */
+/*   Updated: 2024/01/30 10:57:38 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	*ft_calloc(size_t count, size_t size)
 {
-	t_list_m	*list;
+	void	*p;
+	size_t	max_size;
 
-	check_args(argv);
-	list = parse_args(argc, argv);
-	if (!list || check_dup(list))
-	{
-		ft_free(&list);
-		write(2, "Error\n", 6);
-		exit(1);
-	}
-	if (!check_sorted(list))
-		ft_sort(&list);
-	ft_free(&list);
-	return (0);
+	max_size = 4611686014132420608;
+	if (count == 0 || size == 0)
+		return (ft_calloc(1, 1));
+	if (count != 0 && max_size / count < size)
+		return ((void *)0);
+	p = (void *)malloc(count * size * sizeof(void));
+	if (!p)
+		return ((void *)0);
+	ft_bzero(p, count * size);
+	return (p);
 }

@@ -6,13 +6,13 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:53:45 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/01/30 10:39:21 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:14:19 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	apply_rrr(t_list **list_a, t_list **list_b, int nbr, char c)
+void	apply_rrr(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 {
 	if (c == 'a')
 	{
@@ -36,7 +36,7 @@ void	apply_rrr(t_list **list_a, t_list **list_b, int nbr, char c)
 	}
 }
 
-void	apply_rr(t_list **list_a, t_list **list_b, int nbr, char c)
+void	apply_rr(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 {
 	if (c == 'a')
 	{
@@ -60,7 +60,7 @@ void	apply_rr(t_list **list_a, t_list **list_b, int nbr, char c)
 	}
 }
 
-void	apply_rarrb(t_list **list_a, t_list **list_b, int nbr, char c)
+void	apply_rarrb(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 {
 	if (c == 'a')
 	{
@@ -80,7 +80,7 @@ void	apply_rarrb(t_list **list_a, t_list **list_b, int nbr, char c)
 	}
 }
 
-void	apply_rrarb(t_list **list_a, t_list **list_b, int nbr, char c)
+void	apply_rrarb(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 {
 	if (c == 'a')
 	{

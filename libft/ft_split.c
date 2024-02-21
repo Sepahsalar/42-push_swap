@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 17:51:56 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/01/30 10:41:19 by asohrabi         ###   ########.fr       */
+/*   Created: 2023/10/26 12:30:45 by asohrabi          #+#    #+#             */
+/*   Updated: 2024/01/30 10:59:23 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-static int	count_occur(char *s, char c)
+static int	count_occur(char const *s, char c)
 {
 	int	count;
 	int	in_word;
@@ -96,13 +96,13 @@ static t_shorten	first_split(char *str, char c)
 	return (p);
 }
 
-char	**ft_split(char *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	t_shorten	p;
 
 	if (!s)
 		return (0);
-	p = first_split(s, c);
+	p = first_split((char *)s, c);
 	if (!p.array)
 		return (0);
 	if (p.in_word)
