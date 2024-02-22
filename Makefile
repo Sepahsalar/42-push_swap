@@ -6,7 +6,7 @@
 #    By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 10:43:45 by asohrabi          #+#    #+#              #
-#    Updated: 2024/02/22 17:03:36 by asohrabi         ###   ########.fr        #
+#    Updated: 2024/02/22 17:05:22 by asohrabi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ OBJ = ${FUNC:.c=.o}
 
 # OBJ_BONUS = ${FUNC_BONUS:.c=.o}
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -O1 -fno-omit-frame-pointer -g #might be good
+CFLAGS = -Wall -Wextra -Werror
 
 %.o: %.c
 	cc ${CFLAGS} -c $< -o $@
