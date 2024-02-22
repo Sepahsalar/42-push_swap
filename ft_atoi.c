@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 16:48:05 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/02/22 16:36:56 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/02/22 17:11:43 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	ft_putnum_m(const char *str, int sign, int i)
 	}
 	while (str[i])
 	{
-		if (ft_isdigit(str[i]))
+		if (!ft_isdigit(str[i]))
 		{
 			ft_putendl_fd("Error", 2);
 			exit(1);

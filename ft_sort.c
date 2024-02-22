@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:23:44 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/02/21 13:19:21 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/02/22 18:21:33 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	ft_sort_b_till_three(t_list_m **list_a, t_list_m **list_b)
 	t_list_m	*temp;
 	int			i;
 
-	while (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a))
+	while (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a)) //maybe delete 
 	{
 		temp = *list_a;
 		i = cal_push_ab(*list_a, *list_b);
@@ -59,7 +59,7 @@ static void	ft_sort_b_till_three(t_list_m **list_a, t_list_m **list_b)
 	}
 }
 
-static t_list_m	*ft_sort_list_m_b(t_list_m **list_a)
+static t_list_m	*ft_sort_list_b(t_list_m **list_a)
 {
 	t_list_m	*list_b;
 
@@ -75,7 +75,7 @@ static t_list_m	*ft_sort_list_m_b(t_list_m **list_a)
 	return (list_b);
 }
 
-static t_list_m	**ft_sort_list_m_a(t_list_m **list_a, t_list_m **list_b)
+static t_list_m	**ft_sort_list_a(t_list_m **list_a, t_list_m **list_b)
 {
 	t_list_m	*temp;
 	int			i;
@@ -111,8 +111,8 @@ void	ft_sort(t_list_m **list_a)
 		sa(list_a, 1);
 	else
 	{
-		list_b = ft_sort_list_m_b(list_a);
-		list_a = ft_sort_list_m_a(list_a, &list_b);
+		list_b = ft_sort_list_b(list_a); //delete m
+		list_a = ft_sort_list_a(list_a, &list_b); //needs work
 		i = find_index(*list_a, ft_min(*list_a));
 		if (i < ft_lstsize_m(*list_a) - i)
 		{
