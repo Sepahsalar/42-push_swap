@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 16:09:45 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/02/21 16:58:12 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:30:01 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ t_list_m	*parse_args(int argc, char **argv)
 	list = NULL;
 	if (argc < 2)
 	{
-		write(2, "Error\n", 6);
+		ft_putendl_fd("Error", 2);
 		exit(1);
 	}
 	else if (argc == 2)

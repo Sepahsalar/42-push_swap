@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 16:48:05 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/02/21 16:57:40 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:36:56 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ static int	ft_putnum_m(const char *str, int sign, int i)
 	}
 	while (str[i])
 	{
-		if (str[i] < '0' || str[i] > '9')
+		if (ft_isdigit(str[i]))
 		{
-			write (2, "Error\n", 6);
+			ft_putendl_fd("Error", 2);
 			exit(1);
 		}
 		a = a * 10 + (str[i] - '0');
@@ -35,7 +35,7 @@ static int	ft_putnum_m(const char *str, int sign, int i)
 	}
 	if ((sign * a) > 2147483647 || (sign * a) < -2147483648)
 	{
-		write (2, "Error\n", 6);
+		ft_putendl_fd("Error", 2);
 		exit(1);
 	}
 	return (sign * (int)a);

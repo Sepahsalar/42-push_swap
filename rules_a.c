@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:42:14 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/02/21 13:21:09 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:22:08 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	sa(t_list_m **list_a, int i)
 	temp->next = (*list_a)->next;
 	(*list_a)->next = temp;
 	if (i == 1)
-		write(1, "sa\n", 3);
+		ft_putendl_fd("sa", 1);
 }
 
 void	pa(t_list_m **list_a, t_list_m **list_b)
@@ -36,7 +36,7 @@ void	pa(t_list_m **list_a, t_list_m **list_b)
 	*list_a = *list_b;
 	*list_b = (*list_b)->next;
 	(*list_a)->next = temp;
-	write(1, "pa\n", 3);
+	ft_putendl_fd("pa", 1);
 }
 
 void	ra(t_list_m **list_a, int i)
@@ -51,7 +51,7 @@ void	ra(t_list_m **list_a, int i)
 	*list_a = temp->next;
 	temp->next = NULL;
 	if (i == 1)
-		write(1, "ra\n", 3);
+		ft_putendl_fd("ra", 1);
 }
 
 void	rra(t_list_m **list_a, int i)
@@ -76,5 +76,5 @@ void	rra(t_list_m **list_a, int i)
 	}
 	temp->next = NULL;
 	if (i == 1)
-		write(1, "rra\n", 4);
+		ft_putendl_fd("rra", 1);
 }

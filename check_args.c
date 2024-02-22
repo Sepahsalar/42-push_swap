@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:50:55 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/02/21 13:16:10 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:35:54 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ static void	check_alpha(char **argv)
 		while (argv[i][j])
 		{
 			if (!(argv[i][j] == '+' || argv[i][j] == '-' || argv[i][j] == ' '
-				|| (argv[i][j] >= '0' && argv[i][j] <= '9')))
+				|| ft_isdigit(argv[i][j])))
 			{
-				write(2, "Error\n", 6);
+				ft_putendl_fd("Error", 2);
 				exit(1);
 			}
 			j++;
@@ -81,16 +81,15 @@ static int	check_digit_error(char **argv, int i, int j)
 			if (argv[i][j] == '+' || argv[i][j] == '-')
 			{
 				j++;
-				if (!(argv[i][j] >= '0' && argv[i][j] <= '9'))
+				if (!ft_isdigit(argv[i][j]))
 					return (0);
 			}
-			else if (argv[i][j] >= '0' && argv[i][j] <= '9')
+			else if (ft_isdigit(argv[i][j]))
 			{
 				j++;
 				if (!argv[i][j])
 					break ;
-				if (!((argv[i][j] >= '0' && argv[i][j] <= '9')
-					|| (argv[i][j] == ' ')))
+				if (!(ft_isdigit(argv[i][j]) || (argv[i][j] == ' ')))
 					return (0);
 			}
 			j++;
@@ -105,7 +104,7 @@ void	check_args(char **argv)
 	check_alpha(argv);
 	if (!check_digit_error(argv, 1, 0))
 	{
-		write(2, "Error\n", 6);
+		ft_putendl_fd("Error", 2);
 		exit(1);
 	}
 }

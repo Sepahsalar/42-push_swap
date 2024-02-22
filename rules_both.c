@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:08:54 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/02/21 13:21:21 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:29:23 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ss(t_list_m **list_a, t_list_m **list_b)
 		return ;
 	sa(list_a, 0);
 	sb(list_b, 0);
-	write(1, "ss\n", 3);
+	ft_putendl_fd("ss", 1);
 }
 
 void	rr(t_list_m **list_a, t_list_m **list_b)
@@ -27,7 +27,7 @@ void	rr(t_list_m **list_a, t_list_m **list_b)
 		return ;
 	ra(list_a, 0);
 	rb(list_b, 0);
-	write(1, "rr\n", 3);
+	ft_putendl_fd("rr", 1);
 }
 
 void	rrr(t_list_m **list_a, t_list_m **list_b)
@@ -36,5 +36,5 @@ void	rrr(t_list_m **list_a, t_list_m **list_b)
 		return ;
 	rra(list_a, 0);
 	rrb(list_b, 0);
-	write(1, "rrr\n", 4);
+	ft_putendl_fd("rrr", 1);
 }

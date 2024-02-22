@@ -6,23 +6,27 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:53:45 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/02/21 13:14:19 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/02/22 15:52:53 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+//maybe I should add the case if the size of list became less then 3, break ;
+//check with these numbers : 2 3 0 -90 -9 -7 -8 -12
 void	apply_rrr(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 {
 	if (c == 'a')
 	{
-		if ((*list_a)->n != nbr && cal_insert_index_b(*list_b, nbr) > 0)
-			rrr(list_a, list_b);
-		if ((*list_a)->n != nbr)
-			rra(list_a, 1);
-		if (cal_insert_index_b(*list_b, nbr) > 0)
-			rrb(list_b, 1);
-		pb(list_b, list_a);
+		if (ft_lstsize(*list_a) > 3 && !check_sorted(*list_a)) //maybe while
+		{
+			if ((*list_a)->n != nbr && cal_insert_index_b(*list_b, nbr) > 0)
+				rrr(list_a, list_b);
+			if ((*list_a)->n != nbr)
+				rra(list_a, 1);
+			if (cal_insert_index_b(*list_b, nbr) > 0)
+				rrb(list_b, 1);
+			pb(list_b, list_a);
+		}
 	}
 	else if (c == 'b')
 	{
