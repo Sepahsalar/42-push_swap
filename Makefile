@@ -6,7 +6,7 @@
 #    By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 10:43:45 by asohrabi          #+#    #+#              #
-#    Updated: 2024/03/25 11:32:00 by asohrabi         ###   ########.fr        #
+#    Updated: 2024/03/25 11:53:21 by asohrabi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,28 +36,28 @@ all: ${NAME}
 
 ${NAME}: ${OBJ}
 	@make -C ./libft
-	@cc ${OBJ} -Llibft -lft -o ${NAME}
+	@cc ${OBJ} -Llibft -lft ${HEADER} -o ${NAME}
 
 .bonus: ${BONUS} ${OBJ_BONUS}
 	@make -C ./libft
-	@cc ${OBJ_BONUS} -Llibft -lft ${HEADER} -o ${NAME}
+	@cc ${OBJ_BONUS} -Llibft -lft -o ${NAME}
 	@touch .bonus
 
 bonus: .bonus
 
 clean:
+	rm -f ${OBJ} ${OBJ_BONUS}
 	@make clean -C ./libft
 	@rm -f .bonus
-	rm -f ${OBJ} ${OBJ_BONUS}
 
 fclean: clean
-	@make fclean -C ./libft
 	rm -f ${NAME}
+	@make fclean -C ./libft
 
 re: fclean all
 
 debug:
-	make fclean
-	make all FLAGS="-g -fsanitize=address -O1 -fno-omit-frame-pointer"
+	@make fclean
+	@make all FLAGS="-g -fsanitize=address -O1 -fno-omit-frame-pointer"
 
 .PHONY: all, clean, fclean, re, bonus
