@@ -6,11 +6,11 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 16:48:05 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/02/22 17:11:43 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/03/25 11:11:35 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static int	ft_putnum_m(const char *str, int sign, int i)
 {

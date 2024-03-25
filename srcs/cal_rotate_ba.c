@@ -6,11 +6,11 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 12:21:06 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/02/22 17:08:58 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/03/25 11:11:27 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 // This function calculates how many times we should rotate the stacks together.
 int	cal_rrr_ba(t_list_m *list_a, t_list_m *list_b, int nbr)

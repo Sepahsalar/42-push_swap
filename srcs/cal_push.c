@@ -6,11 +6,11 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:18:50 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/02/23 13:05:53 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/03/25 11:11:20 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	cal_push_ab(t_list_m *list_a, t_list_m *list_b)
 {

@@ -6,17 +6,17 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:53:45 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/03/25 11:07:35 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/03/25 11:23:13 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 //maybe I should add the case if the size of list became less then 3, break ;
 //check with these numbers : 2 3 0 -90 -9 -7 -8 -12
 void	apply_rrr(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 {
-	if (!list_a || !list_b)
-		return ;
+	// if (!list_a || !list_b)
+	// 	return ;
 	if (c == 'a')
 	{
 		if (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a)) //maybe while

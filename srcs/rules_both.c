@@ -6,11 +6,11 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:08:54 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/02/22 16:29:23 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/03/25 11:12:03 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	ss(t_list_m **list_a, t_list_m **list_b)
 {
