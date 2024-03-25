@@ -6,7 +6,7 @@
 #    By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 10:43:45 by asohrabi          #+#    #+#              #
-#    Updated: 2024/03/25 13:18:37 by asohrabi         ###   ########.fr        #
+#    Updated: 2024/03/25 15:11:46 by asohrabi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ BONUS = checker
 
 HEADER	= -I ./includes
 
-FUNC =  srcs/check_args.c srcs/ft_sort.c srcs/ft_atoi.c srcs/cal_rotate_ab.c \
+FUNC =  srcs/check_args.c srcs/ft_sort.c srcs/ft_atoi_m.c srcs/cal_rotate_ab.c \
 			srcs/cal_rotate_ba.c srcs/ft_sort_utils.c srcs/apply_rotate.c \
 			srcs/list_utils.c srcs/parse_args.c srcs/rules_a.c srcs/rules_b.c \
 			srcs/rules_both.c srcs/cal_push.c srcs/main.c \
@@ -27,7 +27,7 @@ OBJ = ${FUNC:.c=.o}
 
 # OBJ_BONUS = ${FUNC_BONUS:.c=.o}
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 
 %.o: %.c
 	cc ${CFLAGS} ${HEADER} -c $< -o $@

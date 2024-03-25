@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 16:09:45 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/03/25 13:17:10 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/03/25 15:11:32 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_free(t_list_m **list)
 	}
 }
 
-static void	ft_free_str(char **list)
+static void	ft_free_str_m(char **list)
 {
 	char	*temp;
 
@@ -74,7 +74,7 @@ t_list_m	*parse_args(int argc, char **argv)
 			exit(EXIT_FAILURE);
 		}
 		list_args(numbers, &list); //maybe neads change
-		ft_free_str(numbers);
+		ft_free_str_m(numbers);
 		free(numbers);
 	}
 	else
