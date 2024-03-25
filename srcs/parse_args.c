@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 16:09:45 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/03/25 11:11:54 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/03/25 13:17:10 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ t_list_m	*parse_args(int argc, char **argv)
 	if (argc < 2)
 	{
 		ft_putendl_fd("Error", 2);
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 	else if (argc == 2)
 	{
@@ -71,7 +71,7 @@ t_list_m	*parse_args(int argc, char **argv)
 		if (!numbers)
 		{
 			ft_putendl_fd("Error", 2);
-			exit(1);
+			exit(EXIT_FAILURE);
 		}
 		list_args(numbers, &list); //maybe neads change
 		ft_free_str(numbers);

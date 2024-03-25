@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:27:50 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/03/25 11:11:50 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/03/25 13:16:52 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	{
 		ft_free(&list);
 		ft_putendl_fd("Error", 2);
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 	if (!check_sorted(list))
 		ft_sort(&list);

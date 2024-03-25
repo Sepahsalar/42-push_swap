@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:42:14 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/03/25 11:11:57 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/03/25 13:17:50 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	sa(t_list_m **list_a, int i)
 	temp->next = (*list_a)->next;
 	(*list_a)->next = temp;
 	if (i == 1)
-		ft_putendl_fd("sa", 1);
+		ft_putendl_fd("sa", STDOUT_FILENO);
 }
 
 void	pa(t_list_m **list_a, t_list_m **list_b)
@@ -36,7 +36,7 @@ void	pa(t_list_m **list_a, t_list_m **list_b)
 	*list_a = *list_b;
 	*list_b = (*list_b)->next;
 	(*list_a)->next = temp;
-	ft_putendl_fd("pa", 1);
+	ft_putendl_fd("pa", STDOUT_FILENO);
 }
 
 void	ra(t_list_m **list_a, int i)
@@ -51,7 +51,7 @@ void	ra(t_list_m **list_a, int i)
 	*list_a = temp->next;
 	temp->next = NULL;
 	if (i == 1)
-		ft_putendl_fd("ra", 1);
+		ft_putendl_fd("ra", STDOUT_FILENO);
 }
 
 void	rra(t_list_m **list_a, int i)
@@ -76,5 +76,5 @@ void	rra(t_list_m **list_a, int i)
 	}
 	temp->next = NULL;
 	if (i == 1)
-		ft_putendl_fd("rra", 1);
+		ft_putendl_fd("rra", STDOUT_FILENO);
 }

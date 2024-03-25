@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:27:11 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/03/25 11:11:45 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/03/25 13:19:26 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_list_m	*ft_lstnew_m(int content)
 	if (!list)
 	{
 		ft_putendl_fd("Error", 2);
-		exit(1);
+		exit(STDOUT_FILENO);
 	}
 	list->n = content;
 	list->next = NULL;

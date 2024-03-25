@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:08:31 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/03/25 11:12:00 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/03/25 13:18:06 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	sb(t_list_m **list_b, int i)
 	temp->next = (*list_b)->next;
 	(*list_b)->next = temp;
 	if (i == 1)
-		ft_putendl_fd("sb", 1);
+		ft_putendl_fd("sb", STDOUT_FILENO);
 }
 
 void	pb(t_list_m **list_b, t_list_m **list_a)
@@ -36,7 +36,7 @@ void	pb(t_list_m **list_b, t_list_m **list_a)
 	*list_b = *list_a;
 	*list_a = (*list_a)->next;
 	(*list_b)->next = temp;
-	ft_putendl_fd("pb", 1);
+	ft_putendl_fd("pb", STDOUT_FILENO);
 }
 
 void	rb(t_list_m **list_b, int i)
@@ -51,7 +51,7 @@ void	rb(t_list_m **list_b, int i)
 	*list_b = temp->next;
 	temp->next = NULL;
 	if (i == 1)
-		ft_putendl_fd("rb", 1);
+		ft_putendl_fd("rb", STDOUT_FILENO);
 }
 
 void	rrb(t_list_m **list_b, int i)
@@ -76,5 +76,5 @@ void	rrb(t_list_m **list_b, int i)
 	}
 	temp->next = NULL;
 	if (i == 1)
-		ft_putendl_fd("rrb", 1);
+		ft_putendl_fd("rrb", STDOUT_FILENO);
 }
