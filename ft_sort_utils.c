@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:23:57 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/02/22 17:13:10 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/02/23 14:40:38 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,8 @@ int	cal_insert_index_a(t_list_m *list_a, int nbr)
 		while (list_a && (list_a->n > nbr || (temp && temp->n < nbr)))
 		{
 			list_a = list_a->next;
-			temp = list_a->next;
+			if (list_a) //maybe delete this
+				temp = list_a->next;
 			i++;
 		}
 	}

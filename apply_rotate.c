@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:53:45 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/02/22 17:04:50 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/03/25 11:07:35 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 //check with these numbers : 2 3 0 -90 -9 -7 -8 -12
 void	apply_rrr(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 {
+	if (!list_a || !list_b)
+		return ;
 	if (c == 'a')
 	{
 		if (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a)) //maybe while
@@ -42,24 +44,26 @@ void	apply_rrr(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 
 void	apply_rr(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 {
-	if (c == 'a')
+	if (!list_a || !list_b)
+		return ;
+	if (c == 'a' && *list_a) // Added check for *list_a
 	{
 		if (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a))
 		{
 			if ((*list_a)->n != nbr && cal_insert_index_b(*list_b, nbr) > 0)
 				rr(list_a, list_b);
-			if ((*list_a)->n != nbr)
+			if (*list_a && (*list_a)->n != nbr) //changed
 				ra(list_a, 1);
 			if (cal_insert_index_b(*list_b, nbr) > 0)
 				rb(list_b, 1);
 			pb(list_b, list_a);
 		}
 	}
-	else if (c == 'b')
+	else if (c == 'b'&& *list_b) // Added check for *list_b
 	{
 		if ((*list_b)->n != nbr && cal_insert_index_a(*list_a, nbr) > 0)
 			rr(list_a, list_b);
-		if ((*list_b)->n != nbr)
+		if (*list_b && (*list_b)->n != nbr) //changed
 			rb(list_b, 1);
 		if (cal_insert_index_a(*list_a, nbr) > 0)
 			ra(list_a, 1);
