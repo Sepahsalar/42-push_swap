@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:50:55 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/03/25 13:15:37 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/03/26 10:51:38 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,7 @@ static void	check_alpha(char **argv)
 		{
 			if (!(argv[i][j] == '+' || argv[i][j] == '-' || argv[i][j] == ' '
 				|| ft_isdigit(argv[i][j])))
-			{
-				ft_putendl_fd("Error", 2);
-				exit(EXIT_FAILURE);
-			}
+				ft_exit();
 			j++;
 		}
 		i++;
@@ -103,8 +100,5 @@ void	check_args(char **argv)
 {
 	check_alpha(argv);
 	if (!check_digit_error(argv, 1, 0))
-	{
-		ft_putendl_fd("Error", 2);
-		exit(EXIT_FAILURE);
-	}
+		ft_exit();
 }

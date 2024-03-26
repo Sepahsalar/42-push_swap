@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:04:07 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/03/25 11:12:18 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/03/26 10:50:36 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_list_m
 	struct s_list_m	*next;
 }					t_list_m;
 
+void		ft_exit(void);
 t_list_m	*parse_args(int argc, char **argv);
 t_list_m	*ft_lstlast_m(t_list_m *lst);
 t_list_m	*ft_lstnew_m(int content);

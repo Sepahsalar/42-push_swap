@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:27:11 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/03/25 13:19:26 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/03/26 10:53:54 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ t_list_m	*ft_lstnew_m(int content)
 
 	list = (t_list_m *)malloc(sizeof(t_list_m));
 	if (!list)
-	{
-		ft_putendl_fd("Error", 2);
-		exit(STDOUT_FILENO);
-	}
+		ft_exit();
 	list->n = content;
 	list->next = NULL;
 	return (list);

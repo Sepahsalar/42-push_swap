@@ -6,12 +6,12 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 16:09:45 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/03/25 15:11:32 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/03/26 11:18:56 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-//Maybe it would a beeter idea to add the case about int overflow here
+//Maybe it would a better idea to add the case about int overflow here
 static void	list_args(char **argv, t_list_m **list)
 {
 	int	i;
@@ -41,17 +41,18 @@ void	ft_free(t_list_m **list)
 
 static void	ft_free_str_m(char **list)
 {
-	char	*temp;
+	int	i;
 
+	i = 0;
 	if (!list)
 		return ;
-	while (*list)
+	while (list[i])
 	{
-		temp = *list;
-		list++;
-		free(temp);
+		free(list[i]);
+		i++;
 	}
 	*list = NULL;
+	free(list);
 }
 
 t_list_m	*parse_args(int argc, char **argv)
@@ -60,22 +61,14 @@ t_list_m	*parse_args(int argc, char **argv)
 	char		**numbers;
 
 	list = NULL;
-	if (argc < 2)
-	{
-		ft_putendl_fd("Error", 2);
-		exit(EXIT_FAILURE);
-	}
-	else if (argc == 2)
+	if (argc == 2)
 	{
 		numbers = ft_split(argv[1], ' ');
 		if (!numbers)
-		{
-			ft_putendl_fd("Error", 2);
-			exit(EXIT_FAILURE);
-		}
+			ft_exit();
 		list_args(numbers, &list); //maybe neads change
 		ft_free_str_m(numbers);
-		free(numbers);
+		// free(numbers);
 	}
 	else
 		list_args(argv, &list);
