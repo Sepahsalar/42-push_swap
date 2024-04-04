@@ -6,7 +6,7 @@
 #    By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 10:43:45 by asohrabi          #+#    #+#              #
-#    Updated: 2024/03/25 15:11:46 by asohrabi         ###   ########.fr        #
+#    Updated: 2024/04/04 13:52:50 by asohrabi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ OBJ = ${FUNC:.c=.o}
 
 # OBJ_BONUS = ${FUNC_BONUS:.c=.o}
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
 
 %.o: %.c
 	cc ${CFLAGS} ${HEADER} -c $< -o $@
@@ -36,7 +36,7 @@ all: ${NAME}
 
 ${NAME}: ${OBJ}
 	@make -C ./libft
-	@cc ${OBJ} -Llibft -lft ${HEADER} -o ${NAME}
+	@cc ${CFLAGS} ${OBJ} -Llibft -lft ${HEADER} -o ${NAME}
 
 .bonus: ${BONUS} ${OBJ_BONUS}
 	@make -C ./libft
