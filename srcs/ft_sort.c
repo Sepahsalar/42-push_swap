@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:23:44 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/04/04 13:57:06 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/04/04 15:23:23 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ static void	ft_sort_b_till_three(t_list_m **list_a, t_list_m **list_b)
 	{
 		temp = *list_a;
 		i = cal_push_ab(*list_a, *list_b);
+		// ft_putendl_fd("here", 1);
 		while (i >= 0 && temp)
 		{
 			if (i == cal_rrr_ab(*list_a, *list_b, temp->n))
@@ -66,12 +67,16 @@ static t_list_m	*ft_sort_list_b(t_list_m **list_a)
 	list_b = NULL;
 	if (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a))
 		pb(&list_b, list_a);
+	// ft_putendl_fd("1st if b", 1);
 	if (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a))
 		pb(&list_b, list_a);
+	// ft_putendl_fd("2nd if b", 1);
 	if (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a))
 		ft_sort_b_till_three(list_a, &list_b);
+	// ft_putendl_fd("3rd if b", 1);
 	if (!check_sorted(*list_a))
 		ft_sort_three(list_a);
+	// ft_putendl_fd("4th if b", 1);
 	return (list_b);
 }
 
@@ -112,9 +117,9 @@ void	ft_sort(t_list_m **list_a)
 	else
 	{
 		list_b = ft_sort_list_b(list_a); //delete m
-		// ft_putendl_fd("sort list b ended", 1); //
+		ft_putendl_fd("sort list b ended", 1); //
 		list_a = ft_sort_list_a(list_a, &list_b); //needs work
-		// ft_putendl_fd("sort list a ended", 1); //
+		ft_putendl_fd("sort list a ended", 1); //
 		i = find_index(*list_a, ft_min(*list_a));
 		if (i < ft_lstsize_m(*list_a) - i)
 		{
