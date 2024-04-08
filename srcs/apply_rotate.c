@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:53:45 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/04/08 17:52:04 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/04/08 17:55:07 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,11 @@
 //check with these numbers : 2 3 0 -90 -9 -7 -8 -12
 #include <stdio.h>
 
-// void	apply_rr(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
-// {
-// 	int			i;
-// 	t_list_m	*tmp;
-
-// 	i = 0;
-// 	while (i < nbr)
-// 	{
-// 		tmp = (*list_a)->next;
-// 		(*list_a)->next = (*list_b)->next;
-// 		(*list_b)->next = (*list_a)->next->next;
-// 		(*list_a)->next->next = (*list_b)->next->next;
-// 		(*list_b)->next->next = tmp;
-// 		i++;
-// 	}
-// }
 void	apply_rrr(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 {
 	// if (!list_a || !list_b)
 	// 	return ;
-	if (c == 'a' && *list_a)
+	if (c == 'a')
 	{
 		while (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a))
 		{
@@ -65,7 +49,7 @@ void	apply_rr(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 {
 	// if (!list_a || !list_b)
 	// 	return ;
-	if (c == 'a' && *list_a)
+	if (c == 'a')
 	{
 		while (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a))
 		{
@@ -93,7 +77,7 @@ void	apply_rr(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 
 void	apply_rarrb(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 {
-	if (c == 'a' && *list_a)
+	if (c == 'a')
 	{
 		while (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a))
 		{
@@ -118,7 +102,7 @@ void	apply_rarrb(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 
 void	apply_rrarb(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 {
-	if (c == 'a' && *list_a)
+	if (c == 'a')
 	{
 		while (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a))
 		{
