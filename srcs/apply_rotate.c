@@ -6,13 +6,14 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:53:45 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/03/25 13:15:49 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/04/08 15:08:12 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 //maybe I should add the case if the size of list became less then 3, break ;
 //check with these numbers : 2 3 0 -90 -9 -7 -8 -12
+#include <stdio.h>
 void	apply_rrr(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 {
 	if (!list_a || !list_b)
@@ -32,13 +33,23 @@ void	apply_rrr(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 	}
 	else if (c == 'b')
 	{
-		if ((*list_b)->n != nbr && cal_insert_index_a(*list_a, nbr) > 0)
-			rrr(list_a, list_b);
-		if ((*list_b)->n != nbr)
-			rrb(list_b, 1);
+		// printf("here1\n");
+		// printf("%d\n", (*list_b)->n);
+		// printf("%d\n", nbr);
+		if (*list_b)
+		{
+			if ((*list_b)->n != nbr && cal_insert_index_a(*list_a, nbr) > 0)
+				rrr(list_a, list_b);
+			// printf("here2\n");
+			if ((*list_b)->n != nbr)
+				rrb(list_b, 1);
+		}
+		// printf("here3\n");
 		if (cal_insert_index_a(*list_a, nbr) > 0)
 			rra(list_a, 1);
+		// printf("here4\n");
 		pa(list_a, list_b);
+		// printf("here5\n");
 	}
 }
 

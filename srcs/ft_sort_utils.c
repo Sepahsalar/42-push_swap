@@ -6,38 +6,42 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:23:57 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/03/25 11:11:39 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/04/08 15:08:37 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
+#include <stdio.h>
 int	ft_min(t_list_m *list)
 {
-	int		min;
+	int			min;
+	t_list_m	*temp;
 
-	min = list->n;
-	while (list)
+	temp = list;
+	min = temp->n;
+	while (temp)
 	{
-		if (list->n < min)
-			min = list->n;
-		list = list->next;
+		if (temp->n < min)
+			min = temp->n;
+		temp = temp->next;
 	}
 	return (min);
 }
 
 int	ft_max(t_list_m *list)
 {
-	int		max;
+	int			max;
+	t_list_m	*temp;
 
 	// if (!list)
 	// 	return (0);
-	max = list->n;
-	while (list)
+	temp = list;
+	max = temp->n;
+	while (temp)
 	{
-		if (list->n > max)
-			max = list->n;
-		list = list->next;
+		if (temp->n > max)
+			max = temp->n;
+		temp = temp->next;
 	}
 	return (max);
 }
@@ -91,12 +95,14 @@ int	cal_insert_index_a(t_list_m *list_a, int nbr)
 	i = 1;
 	if (!list_a)
 		return (0);
+	// printf("cal1\n");
 	if (nbr > ft_max(list_a) || nbr < ft_min(list_a))
 		i = find_index(list_a, ft_min(list_a));
 	else if (nbr < list_a->n && nbr > ft_lstlast_m(list_a)->n)
 		i = 0;
 	else
 	{
+		// printf("cal2\n");
 		temp = list_a->next;
 		while (list_a && (list_a->n > nbr || (temp && temp->n < nbr)))
 		{

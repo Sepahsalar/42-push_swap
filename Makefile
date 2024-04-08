@@ -6,7 +6,7 @@
 #    By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 10:43:45 by asohrabi          #+#    #+#              #
-#    Updated: 2024/04/04 13:52:50 by asohrabi         ###   ########.fr        #
+#    Updated: 2024/04/08 14:25:19 by asohrabi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ OBJ = ${FUNC:.c=.o}
 
 # OBJ_BONUS = ${FUNC_BONUS:.c=.o}
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
 %.o: %.c
 	cc ${CFLAGS} ${HEADER} -c $< -o $@
