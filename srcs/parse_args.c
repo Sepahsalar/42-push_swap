@@ -6,20 +6,21 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 16:09:45 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/03/26 11:18:56 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/04/08 12:26:46 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdio.h>
 //Maybe it would a better idea to add the case about int overflow here
-static void	list_args(char **argv, t_list_m **list)
+static void	list_args(char **str, t_list_m **list)
 {
 	int	i;
 
-	i = 1;
-	while (argv[i])
+	i = 0;
+	while (str[i])
 	{
-		ft_lstadd_back_m(list, ft_lstnew_m(ft_atoi_m(argv[i])));
+		ft_lstadd_back_m(list, ft_lstnew_m(ft_atoi_m(str[i])));
 		i++;
 	}
 }
@@ -71,6 +72,6 @@ t_list_m	*parse_args(int argc, char **argv)
 		// free(numbers);
 	}
 	else
-		list_args(argv, &list);
+		list_args(argv + 1, &list);
 	return (list);
 }
