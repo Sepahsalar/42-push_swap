@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:23:44 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/04/08 15:09:51 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/04/08 15:17:17 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,9 +117,9 @@ void	ft_sort(t_list_m **list_a)
 	else
 	{
 		list_b = ft_sort_list_b(list_a); //delete m
-		ft_putendl_fd("sort list b ended", 1); //
+		// ft_putendl_fd("sort list b ended", 1); //
 		list_a = ft_sort_list_a(list_a, &list_b); //needs work
-		ft_putendl_fd("sort list a ended", 1); //
+		// ft_putendl_fd("sort list a ended", 1); //
 		i = find_index(*list_a, ft_min(*list_a));
 		if (i < ft_lstsize_m(*list_a) - i)
 		{

@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:53:45 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/04/08 15:08:12 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/04/08 16:37:48 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,30 @@
 //maybe I should add the case if the size of list became less then 3, break ;
 //check with these numbers : 2 3 0 -90 -9 -7 -8 -12
 #include <stdio.h>
+
+// void	apply_rr(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
+// {
+// 	int			i;
+// 	t_list_m	*tmp;
+
+// 	i = 0;
+// 	while (i < nbr)
+// 	{
+// 		tmp = (*list_a)->next;
+// 		(*list_a)->next = (*list_b)->next;
+// 		(*list_b)->next = (*list_a)->next->next;
+// 		(*list_a)->next->next = (*list_b)->next->next;
+// 		(*list_b)->next->next = tmp;
+// 		i++;
+// 	}
+// }
 void	apply_rrr(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 {
-	if (!list_a || !list_b)
-		return ;
-	if (c == 'a')
+	// if (!list_a || !list_b)
+	// 	return ;
+	if (c == 'a' && *list_a)
 	{
-		if (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a)) //maybe while
+		while (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a))
 		{
 			if ((*list_a)->n != nbr && cal_insert_index_b(*list_b, nbr) > 0)
 				rrr(list_a, list_b);
@@ -31,62 +48,54 @@ void	apply_rrr(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 			pb(list_b, list_a);
 		}
 	}
-	else if (c == 'b')
+	else if (c == 'b' && *list_b)
 	{
-		// printf("here1\n");
-		// printf("%d\n", (*list_b)->n);
-		// printf("%d\n", nbr);
-		if (*list_b)
-		{
-			if ((*list_b)->n != nbr && cal_insert_index_a(*list_a, nbr) > 0)
-				rrr(list_a, list_b);
-			// printf("here2\n");
-			if ((*list_b)->n != nbr)
-				rrb(list_b, 1);
-		}
-		// printf("here3\n");
+		if ((*list_b)->n != nbr && cal_insert_index_a(*list_a, nbr) > 0)
+			rrr(list_a, list_b);
+		if (*list_b && (*list_b)->n != nbr)
+			rrb(list_b, 1);
 		if (cal_insert_index_a(*list_a, nbr) > 0)
 			rra(list_a, 1);
-		// printf("here4\n");
-		pa(list_a, list_b);
-		// printf("here5\n");
+		if (*list_b != NULL)
+			pa(list_a, list_b);
 	}
 }
 
 void	apply_rr(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 {
-	if (!list_a || !list_b)
-		return ;
-	if (c == 'a' && *list_a) // Added check for *list_a
+	// if (!list_a || !list_b)
+	// 	return ;
+	if (c == 'a' && *list_a)
 	{
-		if (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a))
+		while (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a))
 		{
 			if ((*list_a)->n != nbr && cal_insert_index_b(*list_b, nbr) > 0)
 				rr(list_a, list_b);
-			if (*list_a && (*list_a)->n != nbr) //changed
+			if ((*list_a)->n != nbr)
 				ra(list_a, 1);
 			if (cal_insert_index_b(*list_b, nbr) > 0)
 				rb(list_b, 1);
 			pb(list_b, list_a);
 		}
 	}
-	else if (c == 'b'&& *list_b) // Added check for *list_b
+	else if (c == 'b' && *list_b)
 	{
 		if ((*list_b)->n != nbr && cal_insert_index_a(*list_a, nbr) > 0)
 			rr(list_a, list_b);
-		if (*list_b && (*list_b)->n != nbr) //changed
+		if (*list_b && (*list_b)->n != nbr)
 			rb(list_b, 1);
 		if (cal_insert_index_a(*list_a, nbr) > 0)
 			ra(list_a, 1);
-		pa(list_a, list_b);
+		if (*list_b != NULL)
+			pa(list_a, list_b);
 	}
 }
 
 void	apply_rarrb(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 {
-	if (c == 'a')
+	if (c == 'a' && *list_a)
 	{
-		if (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a))
+		while (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a))
 		{
 			if ((*list_a)->n != nbr)
 				ra(list_a, 1);
@@ -96,22 +105,22 @@ void	apply_rarrb(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 			pb(list_b, list_a);
 		}
 	}
-	else if (c == 'b')
+	else if (c == 'b' && *list_b)
 	{
 		if (cal_insert_index_a(*list_a, nbr) > 0)
 			ra(list_a, 1);
-		if ((*list_b)->n != nbr)
+		if (*list_b && (*list_b)->n != nbr)
 			rrb(list_b, 1);
-		//if (*list_a != NULL)  // Added check for non-empty list_a
-		pa(list_a, list_b);
+		if (*list_b != NULL)  // Added check for non-empty list_a
+			pa(list_a, list_b);
 	}
 }
 
 void	apply_rrarb(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 {
-	if (c == 'a')
+	if (c == 'a' && *list_a)
 	{
-		if (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a))
+		while (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a))
 		{
 			if ((*list_a)->n != nbr)
 				rra(list_a, 1);
@@ -121,13 +130,13 @@ void	apply_rrarb(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 			pb(list_b, list_a);
 		}
 	}
-	else if (c == 'b')
+	else if (c == 'b' && *list_b)
 	{
 		if (cal_insert_index_a(*list_a, nbr) > 0)
 			rra(list_a, 1);
-		if ((*list_b)->n != nbr)
+		if (*list_b && (*list_b)->n != nbr)
 			rb(list_b, 1);
-		//if (*list_a != NULL)  // Added check for non-empty list_a
-		pa(list_a, list_b);
+		if (*list_b != NULL)  // Added check for non-empty list_a
+			pa(list_a, list_b);
 	}
 }
