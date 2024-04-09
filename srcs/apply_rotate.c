@@ -6,14 +6,13 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:53:45 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/04/08 17:55:07 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/04/09 16:24:16 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 //maybe I should add the case if the size of list became less then 3, break ;
 //check with these numbers : 2 3 0 -90 -9 -7 -8 -12
-#include <stdio.h>
 
 void	apply_rrr(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 {
@@ -85,7 +84,6 @@ void	apply_rarrb(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 				ra(list_a, 1);
 			if (cal_insert_index_b(*list_b, nbr) > 0)
 				rrb(list_b, 1);
-			//if (*list_a != NULL)  // Added check for non-empty list_a
 			pb(list_b, list_a);
 		}
 	}
@@ -95,7 +93,7 @@ void	apply_rarrb(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 			ra(list_a, 1);
 		if (*list_b && (*list_b)->n != nbr)
 			rrb(list_b, 1);
-		if (*list_b != NULL)  // Added check for non-empty list_b
+		if (*list_b != NULL)
 			pa(list_a, list_b);
 	}
 }
@@ -110,7 +108,6 @@ void	apply_rrarb(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 				rra(list_a, 1);
 			if (cal_insert_index_b(*list_b, nbr) > 0)
 				rb(list_b, 1);
-			//if (*list_a != NULL)  // Added check for non-empty list_a
 			pb(list_b, list_a);
 		}
 	}
@@ -120,7 +117,7 @@ void	apply_rrarb(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 			rra(list_a, 1);
 		if (*list_b && (*list_b)->n != nbr)
 			rb(list_b, 1);
-		if (*list_b != NULL)  // Added check for non-empty list_b
+		if (*list_b != NULL)
 			pa(list_a, list_b);
 	}
 }

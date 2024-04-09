@@ -6,13 +6,12 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 16:09:45 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/04/08 12:26:46 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/04/09 16:25:42 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdio.h>
-//Maybe it would a better idea to add the case about int overflow here
+
 static void	list_args(char **str, t_list_m **list)
 {
 	int	i;
@@ -67,9 +66,8 @@ t_list_m	*parse_args(int argc, char **argv)
 		numbers = ft_split(argv[1], ' ');
 		if (!numbers)
 			ft_exit();
-		list_args(numbers, &list); //maybe neads change
+		list_args(numbers, &list);
 		ft_free_str_m(numbers);
-		// free(numbers);
 	}
 	else
 		list_args(argv + 1, &list);
