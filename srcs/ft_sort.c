@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:23:44 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/04/10 15:40:35 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/04/10 18:25:40 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,14 @@ static void	ft_sort_b_till_three(t_list_m **list_a, t_list_m **list_b)
 				apply_rarrb(list_a, list_b, temp->n, 'a');
 			else if (i == cal_rrarb_ab(*list_a, *list_b, temp->n))
 				apply_rrarb(list_a, list_b, temp->n, 'a');
+			// if (*list_a)
+			// {
+			// 	temp = *list_a;
+			// if (temp->next)
 			temp = temp->next;
+			// }
+			// else
+			// 	break ;
 		}
 	}
 }
@@ -143,7 +150,15 @@ static t_list_m	**ft_sort_list_a(t_list_m **list_a, t_list_m **list_b)
 			apply_rrarb(list_a, list_b, temp->n, 'b');
 		}
 		printf("Bye\n");
+		// if (*list_b)
+		// {
+		// 	temp = *list_b;
+		// printf("temp is %d\n", temp->n);
+		// if (temp->next)
 		temp = temp->next;
+		// }
+		// else
+		// 	break ;
 	}
 	return (list_a);
 }
