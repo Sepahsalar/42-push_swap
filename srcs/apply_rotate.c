@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:53:45 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/04/10 12:14:13 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/04/10 14:10:55 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,25 @@
 
 static void	ft_stack_printer(t_list_m *stack_a, t_list_m *stack_b)
 {
+	t_list_m	*temp_a;
+	t_list_m	*temp_b;
+
+	temp_a = stack_a;
+	temp_b = stack_b;
 	printf("\nStack A\t\t\t\tStack B\n");
-	while (stack_a || stack_b)
+	while (temp_a || temp_b)
 	{
-		if (stack_a)
+		if (temp_a)
 		{
-			printf("%d\t\t\t\t", (stack_a)->n);
-			stack_a = (stack_a)->next;
+			printf("%d\t\t\t\t", (temp_a)->n);
+			temp_a = (temp_a)->next;
 		}
 		else
 			printf("-\t\t\t\t");
-		if (stack_b)
+		if (temp_b)
 		{
-			printf("%d\n", (stack_b)->n);
-			stack_b = (stack_b)->next;
+			printf("%d\n", (temp_b)->n);
+			temp_b = (temp_b)->next;
 		}
 		else
 			printf("-\n");
@@ -82,7 +87,7 @@ void	apply_rrr(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 			rra(list_a, 1);
 			ft_stack_printer(*list_a, *list_b);
 		}
-		if (*list_b != NULL)
+		if (*list_b)
 		{
 			pa(list_a, list_b);
 			ft_stack_printer(*list_a, *list_b);
@@ -134,7 +139,7 @@ void	apply_rr(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 			ra(list_a, 1);
 			ft_stack_printer(*list_a, *list_b);
 		}
-		if (*list_b != NULL)
+		if (*list_b)
 		{
 			pa(list_a, list_b);
 			ft_stack_printer(*list_a, *list_b);
@@ -174,7 +179,7 @@ void	apply_rarrb(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 			rrb(list_b, 1);
 			ft_stack_printer(*list_a, *list_b);
 		}
-		if (*list_b != NULL)
+		if (*list_b)
 		{
 			pa(list_a, list_b);
 			ft_stack_printer(*list_a, *list_b);
@@ -214,7 +219,7 @@ void	apply_rrarb(t_list_m **list_a, t_list_m **list_b, int nbr, char c)
 			rb(list_b, 1);
 			ft_stack_printer(*list_a, *list_b);
 		}
-		if (*list_b != NULL)
+		if (*list_b)
 		{
 			pa(list_a, list_b);
 			ft_stack_printer(*list_a, *list_b);

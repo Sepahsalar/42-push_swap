@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 12:23:57 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/04/09 16:22:39 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/04/10 15:00:37 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	cal_insert_index_b(t_list_m *list_b, int nbr)
 	int			i;
 	t_list_m	*temp;
 
-	i = 1;
+	i = 1; //before it was 1
 	if (!list_b)
 		return (0);
 	if (nbr > ft_max(list_b) || nbr < ft_min(list_b))
@@ -92,7 +92,7 @@ int	cal_insert_index_a(t_list_m *list_a, int nbr)
 	int			i;
 	t_list_m	*temp;
 
-	i = 1;
+	i = 1; //before it was 1
 	if (!list_a)
 		return (0);
 	if (nbr > ft_max(list_a) || nbr < ft_min(list_a))

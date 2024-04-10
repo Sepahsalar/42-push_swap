@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:23:44 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/04/10 12:08:33 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/04/10 15:40:35 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,25 @@
 
 static void	ft_stack_printer(t_list_m *stack_a, t_list_m *stack_b)
 {
+	t_list_m	*temp_a;
+	t_list_m	*temp_b;
+
+	temp_a = stack_a;
+	temp_b = stack_b;
 	printf("\nStack A\t\t\t\tStack B\n");
-	while (stack_a || stack_b)
+	while (temp_a || temp_b)
 	{
-		if (stack_a)
+		if (temp_a)
 		{
-			printf("%d\t\t\t\t", (stack_a)->n);
-			stack_a = (stack_a)->next;
+			printf("%d\t\t\t\t", (temp_a)->n);
+			temp_a = (temp_a)->next;
 		}
 		else
 			printf("-\t\t\t\t");
-		if (stack_b)
+		if (temp_b)
 		{
-			printf("%d\n", (stack_b)->n);
-			stack_b = (stack_b)->next;
+			printf("%d\n", (temp_b)->n);
+			temp_b = (temp_b)->next;
 		}
 		else
 			printf("-\n");
@@ -99,10 +104,11 @@ static t_list_m	*ft_sort_list_b(t_list_m **list_a)
 	}
 	if (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a))
 		ft_sort_b_till_three(list_a, &list_b);
-	// ft_stack_printer(*list_a, list_b);
 	if (!check_sorted(*list_a))
+	{
 		ft_sort_three(list_a);
-	// ft_stack_printer(*list_a, list_b);
+		ft_stack_printer(*list_a, list_b);
+	}
 	return (list_b);
 }
 
@@ -111,22 +117,33 @@ static t_list_m	**ft_sort_list_a(t_list_m **list_a, t_list_m **list_b)
 	t_list_m	*temp;
 	int			i;
 
-	while (*list_b)
+	temp = *list_b;
+	i = cal_push_ba(*list_a, *list_b);
+	while (i >= 0 && temp)
 	{
-		temp = *list_b;
-		i = cal_push_ba(*list_a, *list_b);
-		while (i >= 0 && temp)
+		printf("Hi\n");
+		if (i == cal_rrr_ba(*list_a, *list_b, temp->n))
 		{
-			if (i == cal_rrr_ba(*list_a, *list_b, temp->n))
-				apply_rrr(list_a, list_b, temp->n, 'b');
-			else if (i == cal_rr_ba(*list_a, *list_b, temp->n))
-				apply_rr(list_a, list_b, temp->n, 'b');
-			else if (i == cal_rarrb_ba(*list_a, *list_b, temp->n))
-				apply_rarrb(list_a, list_b, temp->n, 'b');
-			else if (i == cal_rrarb_ba(*list_a, *list_b, temp->n))
-				apply_rrarb(list_a, list_b, temp->n, 'b');
-			temp = temp->next;
+			printf("rrr is applying\n");
+			apply_rrr(list_a, list_b, temp->n, 'b');
 		}
+		else if (i == cal_rr_ba(*list_a, *list_b, temp->n))
+		{
+			printf("rr is applying\n");
+			apply_rr(list_a, list_b, temp->n, 'b');
+		}
+		else if (i == cal_rarrb_ba(*list_a, *list_b, temp->n))
+		{
+			printf("rarrb is applying\n");
+			apply_rarrb(list_a, list_b, temp->n, 'b');
+		}
+		else if (i == cal_rrarb_ba(*list_a, *list_b, temp->n))
+		{
+			printf("rrarb is applying\n");
+			apply_rrarb(list_a, list_b, temp->n, 'b');
+		}
+		printf("Bye\n");
+		temp = temp->next;
 	}
 	return (list_a);
 }
@@ -144,6 +161,9 @@ void	ft_sort(t_list_m **list_a)
 		list_b = ft_sort_list_b(list_a);
 		list_a = ft_sort_list_a(list_a, &list_b);
 		i = find_index(*list_a, ft_min(*list_a));
+		printf("index = %d\n", i);
+		printf("(*list_a)->n = %d\n", (*list_a)->n);
+		printf("min(*list_a) = %d\n", ft_min(*list_a));
 		if (i < ft_lstsize_m(*list_a) - i)
 		{
 			while ((*list_a)->n != ft_min(*list_a))
