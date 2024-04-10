@@ -6,11 +6,35 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:23:44 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/04/09 16:21:28 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/04/10 12:08:33 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdio.h>
+
+static void	ft_stack_printer(t_list_m *stack_a, t_list_m *stack_b)
+{
+	printf("\nStack A\t\t\t\tStack B\n");
+	while (stack_a || stack_b)
+	{
+		if (stack_a)
+		{
+			printf("%d\t\t\t\t", (stack_a)->n);
+			stack_a = (stack_a)->next;
+		}
+		else
+			printf("-\t\t\t\t");
+		if (stack_b)
+		{
+			printf("%d\n", (stack_b)->n);
+			stack_b = (stack_b)->next;
+		}
+		else
+			printf("-\n");
+	}
+	printf("\n");
+}
 
 static void	ft_sort_three(t_list_m **list)
 {
@@ -64,13 +88,21 @@ static t_list_m	*ft_sort_list_b(t_list_m **list_a)
 
 	list_b = NULL;
 	if (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a))
+	{
 		pb(&list_b, list_a);
+		ft_stack_printer(*list_a, list_b);
+	}
 	if (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a))
+	{
 		pb(&list_b, list_a);
+		ft_stack_printer(*list_a, list_b);
+	}
 	if (ft_lstsize_m(*list_a) > 3 && !check_sorted(*list_a))
 		ft_sort_b_till_three(list_a, &list_b);
+	// ft_stack_printer(*list_a, list_b);
 	if (!check_sorted(*list_a))
 		ft_sort_three(list_a);
+	// ft_stack_printer(*list_a, list_b);
 	return (list_b);
 }
 
@@ -115,12 +147,18 @@ void	ft_sort(t_list_m **list_a)
 		if (i < ft_lstsize_m(*list_a) - i)
 		{
 			while ((*list_a)->n != ft_min(*list_a))
+			{
 				ra(list_a, 1);
+				ft_stack_printer(*list_a, list_b);
+			}
 		}
 		else
 		{
 			while ((*list_a)->n != ft_min(*list_a))
+			{
 				rra(list_a, 1);
+				ft_stack_printer(*list_a, list_b);
+			}
 		}
 	}
 }
