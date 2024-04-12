@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 16:48:05 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/03/26 10:53:30 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/04/11 15:16:07 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	ft_putnum_m(const char *str, int sign, int i)
 		a = a * 10 + (str[i] - '0');
 		i++;
 	}
-	if ((sign * a) > 2147483647 || (sign * a) < -2147483648)
+	if ((sign * a) > INT_MAX || (sign * a) < INT_MIN)
 		ft_exit();
 	return (sign * (int)a);
 }

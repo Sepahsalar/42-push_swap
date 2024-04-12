@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:04:07 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/03/26 10:50:36 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/04/11 17:08:23 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "../libft/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 
 typedef struct s_list_m
 {
@@ -23,6 +24,13 @@ typedef struct s_list_m
 	int				i;
 	struct s_list_m	*next;
 }					t_list_m;
+
+typedef struct s_min
+{
+	int	min;
+	int	move;
+	int	s;
+}		t_min;
 
 void		ft_exit(void);
 t_list_m	*parse_args(int argc, char **argv);
@@ -60,8 +68,8 @@ int			cal_rrr_ba(t_list_m *list_a, t_list_m *list_b, int nbr);
 int			cal_rr_ba(t_list_m *list_a, t_list_m *list_b, int nbr);
 int			cal_rarrb_ba(t_list_m *list_a, t_list_m *list_b, int nbr);
 int			cal_rrarb_ba(t_list_m *list_a, t_list_m *list_b, int nbr);
-int			cal_push_ab(t_list_m *list_a, t_list_m *list_b);
-int			cal_push_ba(t_list_m *list_a, t_list_m *list_b);
+t_min		cal_push_ab(t_list_m *list_a, t_list_m *list_b);
+t_min		cal_push_ba(t_list_m *list_a, t_list_m *list_b);
 void		apply_rrr(t_list_m **list_a, t_list_m **list_b, int nbr, char c);
 void		apply_rr(t_list_m **list_a, t_list_m **list_b, int nbr, char c);
 void		apply_rarrb(t_list_m **list_a, t_list_m **list_b, int nbr, char c);
