@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:18:50 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/04/11 17:12:24 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/04/12 14:29:23 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ t_min	cal_push_ab(t_list_m *list_a, t_list_m *list_b)
 		result.move = -1;
 		result.s = 0;
 	}
-	// i = cal_rrr_ab(list_a, list_b, list_a->n);
-	// result.min = list_a->n;
 	result.move = INT_MAX;
 	temp = list_a;
 	while (temp)
@@ -48,8 +46,6 @@ t_min	cal_push_ab(t_list_m *list_a, t_list_m *list_b)
 			i = cal_rrarb_ab(list_a, list_b, temp->n);
 			p = 4;
 		}
-		// printf("i ab = %d\n", i);
-		// printf("temp->n ab = %d\n", temp->n);
 		if (result.move > i)
 		{
 			result.min = temp->n;
