@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:23:44 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/04/15 16:11:20 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/04/15 17:23:13 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	ft_sort_three(t_list_m **list)
 
 static void	ft_sort_b_till_three(t_list_m **list_a, t_list_m **list_b)
 {
-	t_min		result;
+	t_push		result;
 
 	result = cal_push(*list_a, *list_b);
 	while (ft_lstsize_m(*list_a) > 3 && result.move >= 0)
@@ -75,12 +75,34 @@ static t_list_m	*ft_sort_list_b(t_list_m **list_a)
 	return (list_b);
 }
 
-void	ft_sort(t_list_m **list_a)
+static void	ft_sort_list_a(t_list_m **list_a, t_list_m **list_b)
 {
-	t_list_m	*list_b;
 	int			min_a;
 	int			max_a;
 	int			mid_a;
+
+	min_a = (*list_a)->n;
+	mid_a = ((*list_a)->next)->n;
+	max_a = (((*list_a)->next)->next)->n;
+	while ((*list_b) && (*list_b)->n > max_a)
+		pa(list_a, list_b);
+	while ((*list_a)->n != max_a)
+		rra(list_a, 1);
+	while ((*list_b) && (*list_b)->n > mid_a)
+		pa(list_a, list_b);
+	while ((*list_a)->n != mid_a)
+		rra(list_a, 1);
+	while ((*list_b) && (*list_b)->n > min_a)
+		pa(list_a, list_b);
+	while ((*list_a)->n != min_a)
+		rra(list_a, 1);
+	while ((*list_b) && (*list_b)->n < min_a)
+		pa(list_a, list_b);
+}
+
+void	ft_sort(t_list_m **list_a)
+{
+	t_list_m	*list_b;
 	int			i;
 
 	list_b = NULL;
@@ -98,23 +120,7 @@ void	ft_sort(t_list_m **list_a)
 			else
 				while ((list_b)->n != ft_max(list_b))
 					rrb(&list_b, 1);
-			min_a = (*list_a)->n;
-			mid_a = ((*list_a)->next)->n;
-			max_a = (((*list_a)->next)->next)->n;
-			while (list_b && list_b->n > max_a)
-				pa(list_a, &list_b);
-			while ((*list_a)->n != max_a)
-				rra(list_a, 1);
-			while (list_b && list_b->n > mid_a)
-				pa(list_a, &list_b);
-			while ((*list_a)->n != mid_a)
-				rra(list_a, 1);
-			while (list_b && list_b->n > min_a)
-				pa(list_a, &list_b);
-			while ((*list_a)->n != min_a)
-				rra(list_a, 1);
-			while (list_b && list_b->n < min_a)
-				pa(list_a, &list_b);
+			ft_sort_list_a(list_a, &list_b);
 		}
 	}
 }

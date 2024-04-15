@@ -6,17 +6,41 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:18:50 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/04/15 16:16:36 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/04/15 17:16:01 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_min	cal_push(t_list_m *list_a, t_list_m *list_b)
+static t_push	cal_push_con(t_list_m *list_a, t_list_m *list_b, t_list_m *temp)
 {
-	int			i;
-	int			p;
-	t_min		result;
+	t_push		cal;
+
+	cal.min = 0;
+	cal.move = cal_rrr(list_a, list_b, list_a->n);
+	cal.possibility = 1;
+	if (cal.move > cal_rr(list_a, list_b, temp->n))
+	{
+		cal.move = cal_rr(list_a, list_b, temp->n);
+		cal.possibility = 2;
+	}
+	if (cal.move > cal_rarrb(list_a, list_b, temp->n))
+	{
+		cal.move = cal_rarrb(list_a, list_b, temp->n);
+		cal.possibility = 3;
+	}
+	if (cal.move > cal_rrarb(list_a, list_b, temp->n))
+	{
+		cal.move = cal_rrarb(list_a, list_b, temp->n);
+		cal.possibility = 4;
+	}
+	return (cal);
+}
+
+t_push	cal_push(t_list_m *list_a, t_list_m *list_b)
+{
+	t_push		cal;
+	t_push		result;
 	t_list_m	*temp;
 
 	if (!list_a || !list_b)
@@ -29,28 +53,12 @@ t_min	cal_push(t_list_m *list_a, t_list_m *list_b)
 	temp = list_a;
 	while (temp)
 	{
-		i = cal_rrr(list_a, list_b, list_a->n);
-		p = 1;
-		if (i > cal_rr(list_a, list_b, temp->n))
-		{
-			i = cal_rr(list_a, list_b, temp->n);
-			p = 2;
-		}
-		if (i > cal_rarrb(list_a, list_b, temp->n))
-		{
-			i = cal_rarrb(list_a, list_b, temp->n);
-			p = 3;
-		}
-		if (i > cal_rrarb(list_a, list_b, temp->n))
-		{
-			i = cal_rrarb(list_a, list_b, temp->n);
-			p = 4;
-		}
-		if (result.move > i)
+		cal = cal_push_con(list_a, list_b, temp);
+		if (result.move > cal.move)
 		{
 			result.min = temp->n;
-			result.move = i;
-			result.possibility = p;
+			result.move = cal.move;
+			result.possibility = cal.possibility;
 		}
 		temp = temp->next;
 	}
