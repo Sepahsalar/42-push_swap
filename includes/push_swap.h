@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:04:07 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/04/11 17:08:23 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/04/15 16:19:49 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 typedef struct s_list_m
 {
 	int				n;
-	int				i;
 	struct s_list_m	*next;
 }					t_list_m;
 
@@ -29,7 +28,7 @@ typedef struct s_min
 {
 	int	min;
 	int	move;
-	int	s;
+	int	possibility;
 }		t_min;
 
 void		ft_exit(void);
@@ -58,21 +57,15 @@ int			check_dup(t_list_m *list);
 void		check_args(char **argv);
 void		ft_sort(t_list_m **list_a);
 int			find_index(t_list_m *list, int nbr);
-int			cal_insert_index_b(t_list_m *list_b, int nbr);
-int			cal_insert_index_a(t_list_m *list_a, int nbr);
-int			cal_rrr_ab(t_list_m *list_a, t_list_m *list_b, int nbr);
-int			cal_rr_ab(t_list_m *list_a, t_list_m *list_b, int nbr);
-int			cal_rarrb_ab(t_list_m *list_a, t_list_m *list_b, int nbr);
-int			cal_rrarb_ab(t_list_m *list_a, t_list_m *list_b, int nbr);
-int			cal_rrr_ba(t_list_m *list_a, t_list_m *list_b, int nbr);
-int			cal_rr_ba(t_list_m *list_a, t_list_m *list_b, int nbr);
-int			cal_rarrb_ba(t_list_m *list_a, t_list_m *list_b, int nbr);
-int			cal_rrarb_ba(t_list_m *list_a, t_list_m *list_b, int nbr);
-t_min		cal_push_ab(t_list_m *list_a, t_list_m *list_b);
-t_min		cal_push_ba(t_list_m *list_a, t_list_m *list_b);
-void		apply_rrr(t_list_m **list_a, t_list_m **list_b, int nbr, char c);
-void		apply_rr(t_list_m **list_a, t_list_m **list_b, int nbr, char c);
-void		apply_rarrb(t_list_m **list_a, t_list_m **list_b, int nbr, char c);
-void		apply_rrarb(t_list_m **list_a, t_list_m **list_b, int nbr, char c);
+int			cal_insert_index(t_list_m *list_b, int nbr);
+int			cal_rrr(t_list_m *list_a, t_list_m *list_b, int nbr);
+int			cal_rr(t_list_m *list_a, t_list_m *list_b, int nbr);
+int			cal_rarrb(t_list_m *list_a, t_list_m *list_b, int nbr);
+int			cal_rrarb(t_list_m *list_a, t_list_m *list_b, int nbr);
+t_min		cal_push(t_list_m *list_a, t_list_m *list_b);
+void		apply_rrr(t_list_m **list_a, t_list_m **list_b, int nbr);
+void		apply_rr(t_list_m **list_a, t_list_m **list_b, int nbr);
+void		apply_rarrb(t_list_m **list_a, t_list_m **list_b, int nbr);
+void		apply_rrarb(t_list_m **list_a, t_list_m **list_b, int nbr);
 
 #endif

@@ -6,17 +6,11 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:27:50 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/03/26 10:54:21 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/04/15 16:14:42 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void	ft_exit(void)
-{
-	ft_putendl_fd("Error", STDERR_FILENO);
-	exit(EXIT_FAILURE);
-}
 
 int	main(int argc, char **argv)
 {
