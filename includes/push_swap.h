@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:04:07 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/04/15 16:19:49 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/04/15 16:25:15 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
-# include <unistd.h>
-# include <stdlib.h>
-# include <limits.h>
 
 typedef struct s_list_m
 {
