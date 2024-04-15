@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:58:15 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/01/30 10:59:15 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/04/15 16:30:54 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd('-', fd);
 		n = -n;
 	}
-	if (n == -2147483648)
+	if (n == INT_MIN)
 	{
 		ft_putchar_fd('2', fd);
 		n = 147483648;

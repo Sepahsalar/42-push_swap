@@ -6,7 +6,7 @@
 /*   By: asohrabi <asohrabi@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:43:21 by asohrabi          #+#    #+#             */
-/*   Updated: 2024/01/30 10:58:07 by asohrabi         ###   ########.fr       */
+/*   Updated: 2024/04/15 16:30:13 by asohrabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*ft_itoa(int n)
 	count = 0;
 	if (n == 0)
 		return (ft_strdup("0"));
-	if (n == -2147483648)
+	if (n == INT_MIN)
 		return (ft_strdup("-2147483648"));
 	if (n < 0)
 		count++;
